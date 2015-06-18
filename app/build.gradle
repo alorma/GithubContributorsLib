@@ -10,6 +10,8 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "GITHUB_TOKEN", "\"" + GITHUB_TOKEN_CONTRIBUTORS_LIBRARY + "\""
     }
     buildTypes {
         release {
