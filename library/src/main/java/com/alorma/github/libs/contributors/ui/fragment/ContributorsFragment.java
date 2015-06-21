@@ -1,10 +1,13 @@
 package com.alorma.github.libs.contributors.ui.fragment;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +37,8 @@ public class ContributorsFragment extends Fragment implements Callback<List<Cont
     private String token;
     private String owner;
     private String repo;
+    private boolean reloadContributors = false;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public static ContributorsFragment newInstance(String token, String url) {
         Bundle bundle = new Bundle();
@@ -56,12 +61,22 @@ public class ContributorsFragment extends Fragment implements Callback<List<Cont
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageLoader.getInstance().init(UniversalImageLoaderUtils.getImageLoaderConfiguration(getActivity()));
-
-        listView = (ListView) view.findViewById(R.id.listView);
-        setupListView(listView);
-
         if (getArguments() != null) {
+            ImageLoader.getInstance().init(UniversalImageLoaderUtils.getImageLoaderConfiguration(getActivity()));
+
+            listView = (ListView) view.findViewById(R.id.ghcop_listView);
+            setupListView(listView);
+
+            swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.ghcop_swipe);
+            swipeRefreshLayout.setColorSchemeColors(getThemeColor(getActivity(), R.attr.colorAccent));
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    reloadContributors = true;
+                    loadContributors(0);
+                }
+            });
+
             String repositoryUrl = getArguments().getString(Contributors.BUNDLE_REPOSITORY_URL);
             token = getArguments().getString(Contributors.BUNDLE_CONTRIBUTORS_LIBRARY_GITHUB_TOKEN);
             if (!TextUtils.isEmpty(repositoryUrl) && !TextUtils.isEmpty(token)) {
@@ -75,6 +90,14 @@ public class ContributorsFragment extends Fragment implements Callback<List<Cont
                 }
             }
         }
+    }
+
+    public static int getThemeColor(Context ctx, int attr) {
+        TypedValue tv = new TypedValue();
+        if (ctx.getTheme().resolveAttribute(attr, tv, true)) {
+            return tv.data;
+        }
+        return 0;
     }
 
     protected void setupListView(ListView listView) {
@@ -102,6 +125,12 @@ public class ContributorsFragment extends Fragment implements Callback<List<Cont
     }
 
     private void loadContributors(int page) {
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+            }
+        });
         GetRepoContributorsClient repoContributorsClient = new GetRepoContributorsClient(getActivity(), token, owner, repo, page, this);
         repoContributorsClient.execute();
 
@@ -109,8 +138,12 @@ public class ContributorsFragment extends Fragment implements Callback<List<Cont
 
     @Override
     public void success(List<Contributor> contributors, Response response) {
+        swipeRefreshLayout.setRefreshing(false);
         if (getActivity() != null && getResources() != null) {
             this.nextPage = ApiUtils.getNextPage(response);
+            if (reloadContributors) {
+                usersAdapter = null;
+            }
             if (usersAdapter == null) {
                 usersAdapter = new UsersAdapter(getActivity(), contributors);
                 listView.setAdapter(usersAdapter);

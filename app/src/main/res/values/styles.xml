@@ -8,7 +8,7 @@
     <style name="contributors_custom_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#ffff9376</item>
         <item name="colorPrimaryDark">#ffff7345</item>
-        <item name="colorAccent">#fff625ff</item>
+        <item name="colorAccent">#0000FF</item>
         <item name="ghco_divider_color">#FF00FF</item>
     </style>
 
