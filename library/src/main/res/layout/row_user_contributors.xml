@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeightLarge"
+        android:gravity="center_vertical">
+
+        <com.alorma.github.libs.contributors.ui.view.CircularImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="@dimen/gapLarge"
+            android:layout_marginStart="@dimen/gapLarge"
+            android:layout_marginRight="@dimen/gapLarge"
+            android:layout_marginEnd="@dimen/gapLarge"
+            android:id="@+id/avatarAuthorImage" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/gapLarge"
+                android:layout_marginEnd="@dimen/gapLarge"
+                android:id="@+id/textAuthorLogin"
+                style="@style/user_row_item" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider_inside_card"
+        android:layout_marginLeft="72dp"
+        android:layout_marginStart="72dp" />
+
+</LinearLayout>

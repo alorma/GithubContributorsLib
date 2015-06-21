@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.alorma.github.libs.contributors">
+
+    <application>
+        <activity android:name="com.alorma.github.libs.contributors.ui.activity.ContributorsActivity" />
+    </application>
+
+</manifest>

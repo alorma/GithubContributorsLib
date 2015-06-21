@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- NORMAL -->
+    <style name="ContributorsLibraryTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <item name="drawerArrowStyle">@style/ContributorsLibraryTheme.DrawerArrowStyle</item>
+
+
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/contributors_library_primary</item>
+        <item name="colorPrimaryDark">@color/contributors_library_primary_dark</item>
+        <item name="colorAccent">@color/contributors_library_accent</item>
+        <item name="ghco_divider_color">@color/gray_github_dark</item>
+    </style>
+
+
+    <!-- LIGHT -->
+    <style name="ContributorsLibraryTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <item name="drawerArrowStyle">@style/ContributorsLibraryTheme.Light.DrawerArrowStyle</item>
+
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/contributors_library_primary</item>
+        <item name="colorPrimaryDark">@color/contributors_library_primary_dark</item>
+        <item name="colorAccent">@color/contributors_library_accent</item>
+        <item name="ghco_divider_color">@color/gray_github_light</item>
+    </style>
+
+
+    <!-- LIGHT DARK ACTIONBAR -->
+    <style name="ContributorsLibraryTheme.Light.DarkToolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <item name="drawerArrowStyle">@style/ContributorsLibraryTheme.DrawerArrowStyle</item>
+
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/contributors_library_primary</item>
+        <item name="colorPrimaryDark">@color/contributors_library_primary_dark</item>
+        <item name="colorAccent">@color/contributors_library_accent</item>
+        <item name="ghco_divider_color">@color/gray_github_light</item>
+    </style>
+
+    <!-- DrawerArrowStyles -->
+    <style name="ContributorsLibraryTheme.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="ContributorsLibraryTheme.Light.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>
+        <item name="color">@android:color/black</item>
+    </style>
+
+    <style name="user_row_item">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

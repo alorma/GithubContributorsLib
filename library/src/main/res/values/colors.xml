@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#689F38</color>
+    <color name="colorAccent">#FFC107</color>
+    <!-- for backwards compatiblity make a color chain :D -->
+    <color name="theme_default_primary">@color/colorPrimary</color>
+    <color name="theme_default_primary_dark">@color/colorPrimaryDark</color>
+    <color name="theme_accent">@color/colorAccent</color>
+
+    <color name="contributors_library_primary">@color/theme_default_primary</color>
+    <color name="contributors_library_primary_dark">@color/theme_default_primary_dark</color>
+    <color name="contributors_library_accent">@color/theme_accent</color>
+
+    <color name="gray_github_light">#ffb9b9b9</color>
+    <color name="gray_github_dark">#ff808080</color>
+
+</resources>
