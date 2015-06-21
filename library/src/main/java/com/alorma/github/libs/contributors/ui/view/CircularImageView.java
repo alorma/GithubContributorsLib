@@ -177,7 +177,7 @@ public class CircularImageView extends ImageView {
 	 * Convert a drawable object into a Bitmap
 	 *
 	 * @param drawable
-	 * @return
+	 * @return Cirucular Bitmap
 	 */
 	public Bitmap drawableToBitmap(Drawable drawable) {
 		if (drawable == null) { // Don't do anything without a proper drawable

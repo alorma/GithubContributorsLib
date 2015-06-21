@@ -13,7 +13,6 @@ import android.view.MenuItem;
 
 import com.alorma.github.libs.contributors.Contributors;
 import com.alorma.github.libs.contributors.R;
-import com.alorma.github.libs.contributors.api.dto.Contributor;
 import com.alorma.github.libs.contributors.ui.fragment.ContributorsFragment;
 
 /**
