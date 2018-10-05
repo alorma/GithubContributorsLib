@@ -1,7 +1,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-GithubContributorsLib-green.svg?style=flat)](https://android-arsenal.com/details/1/2020)
 
 # GithubContributorsLib
-A library to easily show open source (Github) project contributors
+A library to easily show open source (GitHub) project contributors
 
 ## Screenshots
 
